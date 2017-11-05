@@ -41,12 +41,12 @@ Matriz1Inversa = inv(Matriz1);
 
 Incognita = Matriz1Inversa*MatrizAumentada;
 
-%muestro los valores incognitas
-disp(Incognita);
-
 %muestro la funcion
 a = Incognita(1);
 b = Incognita(2);
+
+printf('a: %i\n', a);
+printf('b: %i\n', b);
 
 x1 = 0:0.3:10;
 y1 = (a*x1 + b);

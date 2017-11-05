@@ -42,15 +42,15 @@ Aumentada=[sXY;sY];
 
 Incognita = inv(Matriz1)*Aumentada;
 
-%muestro los valores incognitas
-disp(Incognita);
-
 %muestro la funcion
 a = Incognita(1);
-b = Incognita(2);
+b = exp(Incognita(2));
+
+printf('a: %i\n', a);
+printf('b: %i\n', b);
 
 x1 = 0:0.3:10;
-y1 = (exp(b) * x1^a); %%xque exp el primero ? xque decia x1.^a ???      %%(exp(Incognita(2)) * x1.^(Incognita(1)));
+y1 = (b * x1^a); %%xque exp el primero ? xque decia x1.^a ???      %%(exp(Incognita(2)) * x1.^(Incognita(1)));
 
 scatter(x, y);
 

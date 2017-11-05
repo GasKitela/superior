@@ -41,12 +41,12 @@ Aumentada=[sXY;sY];
 
 Incognita = inv(Matriz1)*Aumentada;
 
-%muestro los valores incognitas
-disp(Incognita);
-
 %muestro la funcion
 a = Incognita(1);
 b = exp(Incognita(2));
+
+printf('a: %i\n', a);
+printf('b: %i\n', b);
 
 x1 = 0:0.3:10;
 y1 = (b * exp(a*x1));

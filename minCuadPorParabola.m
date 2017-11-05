@@ -49,13 +49,14 @@ Aumentada=[A; B; C];
 
 Incognita = inv(Matriz1)*Aumentada;
 
-%muestro los valores incognitas
-disp(Incognita);
-
 %muestro la funcion
 a = Incognita(3);
 b = Incognita(2);
 c = Incognita(1); %ESTE ES EL ORDEN CORRECTO --> CHEQUEADO CON EJEMPLO DE LA GUIA
+
+printf('a: %i\n', a);
+printf('b: %i\n', b);
+printf('c: %i\n', c);
 
 x1 = 0:0.3:40; % aca deberia ser x1=x;?
 y1 = (a.*x1.^2 + b.*x1 + c);

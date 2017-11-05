@@ -39,12 +39,12 @@ MatrizAumentada = [sxy;sy];
 
 Incognita = inv(Matriz1)*MatrizAumentada;
 
-%%muestro los valores incognitas
-disp(Incognita);
-
 %muestro la funcion
 a = 1/Incognita(1);
 b = Incognita(2)*a;
+
+printf('a: %i\n', a);
+printf('b: %i\n', b);
 
 x1 = 0:1:9;
 y1 = (a./(x1 + b));
