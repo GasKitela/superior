@@ -1,4 +1,4 @@
-function minCuadPorParabola
+function [retX, retY, retX1, retY1] = minCuadPorParabola
 
 %Limpio los parametros%
 clc
@@ -61,19 +61,9 @@ printf('c: %i\n', c);
 x1 = 0:0.3:40; % aca deberia ser x1=x;?
 y1 = (a.*x1.^2 + b.*x1 + c);
 
-scatter(x, y);
-
-hold on;
-
-plot(x1,y1,'b-');
-
-hold off;
-
-title('Grafica de la recta');
-xlabel('Tiempo en segundos');
-ylabel('Distancia en metros');
-
-grid;
-%fin
+retX = x;
+retY = y;
+retX1 = x1;
+retY1 = y1;
 
 endfunction

@@ -1,4 +1,4 @@
-function aproxHiperbola  
+function [retX, retY, retX1, retY1] = aproxHiperbola  
  
 %Limpio los parametros%
 clc
@@ -49,19 +49,9 @@ printf('b: %i\n', b);
 x1 = 0:1:9;
 y1 = (a./(x1 + b));
 
-scatter(x, y);
-
-hold on;
-
-plot(x1,y1,'b-');
-
-hold off;
-
-title('Grafica de la recta de minimos cuadrados');
-xlabel('Tiempo en segundos');
-ylabel('Distancia en metros');
-
-grid;
-%fin
+retX = x;
+retY = y;
+retX1 = x1;
+retY1 = y1;
 
 endfunction
