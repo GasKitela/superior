@@ -1,4 +1,4 @@
-function [retX, retY, retX1, retY1] = aproxExponencial
+function [retX, retY, retX1, retY1, func] = aproxExponencial
   
 %Limpio los parametros%
 clc
@@ -55,5 +55,6 @@ retX = x;
 retY = y;
 retX1 = x1;
 retY1 = y1;
+func = cstrcat("funcion aproximante: ", num2str(b), "e^", num2str(a), "x", "\n");
 
 endfunction

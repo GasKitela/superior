@@ -1,4 +1,4 @@
-function [retX, retY, retX1, retY1] = minCuadPorParabola
+function [retX, retY, retX1, retY1, func] = minCuadPorParabola
 
 %Limpio los parametros%
 clc
@@ -65,5 +65,6 @@ retX = x;
 retY = y;
 retX1 = x1;
 retY1 = y1;
+func = cstrcat("funcion aproximante: ", num2str(a), "x^2 + ", num2str(b), "x + ", num2str(c), "\n");
 
 endfunction

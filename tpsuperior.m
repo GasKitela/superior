@@ -9,20 +9,15 @@ function main = tpsuperior
   
   switch metodoElegido
     case {1}
-      [x, y, x1, y1] = minCuadPorRecta;
-      %proximoPaso(x, y, x1, y1);
+      [x, y, x1, y1, func] = minCuadPorRecta;
     case {2}
-      [x, y, x1, y1] = minCuadPorParabola;
-      %proximoPaso(x, y, x1, y1);
+      [x, y, x1, y1, func] = minCuadPorParabola;
     case {3}
-      [x, y, x1, y1] = aproxExponencial;
-      %proximoPaso(x, y, x1, y1);
+      [x, y, x1, y1, func] = aproxExponencial;
     case {4}
-      [x, y, x1, y1] = aproxPotencial;
-      %proximoPaso(x, y, x1, y1);
+      [x, y, x1, y1, func] = aproxPotencial;
     case {5}
-      [x, y, x1, y1] = aproxHiperbola;
-      %proximoPaso(x, y, x1, y1);
+      [x, y, x1, y1, func] = aproxHiperbola;
   endswitch
 
   accionElegida = menu("¿Que desea hacer a continuacion?",
@@ -32,7 +27,7 @@ function main = tpsuperior
   
   switch accionElegida
     case {1}
-      disp("aca muestro la funcion");
+      disp(func);
     case {2}
       disp("aca detallo el calculo");
     case {3}

@@ -1,4 +1,5 @@
 function dibujarGrafico(x, y, x1, y1)
+
 scatter(x, y);
 
 hold on;

@@ -1,4 +1,4 @@
-function [retX, retY, retX1, retY1] = aproxHiperbola  
+function [retX, retY, retX1, retY1, func] = aproxHiperbola  
  
 %Limpio los parametros%
 clc
@@ -53,5 +53,6 @@ retX = x;
 retY = y;
 retX1 = x1;
 retY1 = y1;
+func = cstrcat("funcion aproximante: ", num2str(a), "/(x + ", num2str(b), ")", "\n");
 
 endfunction
