@@ -29,7 +29,7 @@ function main = tpsuperior
     case {1}
       disp(func);
     case {2}
-      disp("aca detallo el calculo");
+      detalleDeMetodo(metodoElegido, x, y);
     case {3}
       dibujarGrafico(x, y, x1, y1);
   endswitch
