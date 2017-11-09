@@ -1,52 +1,60 @@
 function main = tpsuperior
 
   opcionPrincipal = menu("Elija una opcion",
-                          "Ingresar Datos",
+                          "Aproximar",
                           "Comparar Aproximaciones",
                           "Finalizar");
                           
   switch opcionPrincipal
     
     case{1}
-      metodoElegido = menu("Elija un metodo de aproximacion lineal por funcion ",
-                         "Recta de minimos cuadrados", 
-                         "Parabola de minimos cuadrados",
-                         "Aproximacion exponencial",
-                         "Aproximacion potencial",
-                         "Aproximacion hiperbola");
-    
-    switch metodoElegido
-      case {1}
-        [x, y, x1, y1, func] = minCuadPorRecta;
-      case {2}
-        [x, y, x1, y1, func] = minCuadPorParabola;
-      case {3}
-        [x, y, x1, y1, func] = aproxExponencial;
-      case {4}
-        [x, y, x1, y1, func] = aproxPotencial;
-      case {5}
-        [x, y, x1, y1, func] = aproxHiperbola;
-    endswitch
-
-    accionElegida = menu("¿Que desea hacer a continuacion?",
-                         "Mostrar funcion aproximante",
-                         "Obtener detalle del calculo",
-                         "Graficar");
-    
-    switch accionElegida
-      case {1}
-        disp(func);
-      case {2}
-        detalleDeMetodo(metodoElegido, x, y);
-      case {3}
-        dibujarGrafico(x, y, x1, y1);
-    endswitch
+      metodoElegido = menu("Elija un metodo de aproximacion",
+                           "Recta de minimos cuadrados", 
+                           "Parabola de minimos cuadrados",
+                           "Aproximacion exponencial",
+                           "Aproximacion potencial",
+                           "Aproximacion hiperbola");
       
-  case{2}
-    compararAprox;
+      x = input('Ingrese los "x" entre corchetes y separados por un espacio: ');
+      y = input('Ingrese los "y" entre corchetes y separados por un espacio: ');
+      dec = input('Ingrese la cantidad de decimales con que desea trabajar: ');                 
+      
+      n = length(x);
+      decimales = power(10, dec);
+      
+      switch metodoElegido
+        case {1}
+          [x, y, x1, y1, func] = minCuadPorRecta(x, y, n, decimales);
+        case {2}
+          [x, y, x1, y1, func] = minCuadPorParabola(x, y, n, decimales);
+        case {3}
+          [x, y, x1, y1, func] = aproxExponencial(x, y, n, decimales);
+        case {4}
+          [x, y, x1, y1, func] = aproxPotencial(x, y, n, decimales);
+        case {5}
+          [x, y, x1, y1, func] = aproxHiperbola(x, y, n, decimales);
+      endswitch
+
+      accionElegida = menu("¿Que desea hacer a continuacion?",
+                           "Mostrar funcion aproximante",
+                           "Obtener detalle del calculo",
+                           "Graficar");
+    
+      switch accionElegida
+        case {1}
+          disp(func);
+        case {2}
+          detalleDeMetodo(metodoElegido, x, y, decimales);
+        case {3}
+          dibujarGrafico(x, y, x1, y1);
+      endswitch
+      
+    case{2}
+      compararAprox;
   
-  case{3}
-    exit 
+    case{3}
+      exit 
+  
   endswitch
   
 endfunction

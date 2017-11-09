@@ -1,39 +1,8 @@
-function [retX, retY, retX1, retY1, func] = minCuadPorParabola
+function [retX, retY, retX1, retY1, func] = minCuadPorParabola(x, y, n, decimales);
 
 %Limpio los parametros%
-clc
-clear all
-
-%Arranco la funcion PARABOLA DE MINIMOS CUADRADOS%
-x= input('Ingrese los "x" entre corchetes y separados por un espacio: ');
-y= input('Ingrese los "y" entre corchetes y separados por un espacio: ');
-dec = input('Ingrese la cantidad de decimales con que desea trabajar: ');
-
-  switch dec
-    case {1}
-      decimales=10;
-    case {2}
-      decimales=100;
-    case {3}
-      decimales=1000;
-    case {4}
-      decimales=10000;
-    case {5}
-      decimales=100000;
-    case {6}
-      decimales=1000000;
-    case {6}
-      decimales=10000000;
-    case {7}
-      decimales=100000000;
-    case {8}
-      decimales=1000000000;
-    case {9}
-      decimales=10000000000;
-  endswitch                  
-             
-             
-n=length(x); %Cantidad de valores
+%clc
+%clear all
 
 %Inicio los valores de las sumatorias
 sx= 0;
@@ -75,18 +44,6 @@ a = Incognita(3);
 b = Incognita(2);
 c = Incognita(1); %ESTE ES EL ORDEN CORRECTO --> CHEQUEADO CON EJEMPLO DE LA GUIA
 
-
-a1 = fix(a*decimales)/decimales;
-printf('a: %i\n', a1);
-
-
-b1 = fix(b*decimales)/decimales;
-printf('b: %i\n', b1);
-
-
-c1 = fix(c*decimales)/decimales;
-printf('c: %i\n', c1);
-
 x1 = 0:0.3:40; 
 y1 = (a.*x1.^2 + b.*x1 + c);
 
@@ -94,6 +51,6 @@ retX = x;
 retY = y;
 retX1 = x1;
 retY1 = y1;
-func = cstrcat("funcion aproximante: ", num2str(a), "x^2 + ", num2str(b), "x + ", num2str(c), "\n");
+func = cstrcat("funcion aproximante: ", num2str(fix(a*decimales)/decimales), "x^2 + ", num2str(fix(b*decimales)/decimales), "x + ", num2str(fix(c*decimales)/decimales), "\n");
 
 endfunction
