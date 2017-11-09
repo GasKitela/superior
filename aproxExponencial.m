@@ -18,7 +18,7 @@ n=length(x); %Cantidad de valores
 sx= 0;
 sY= 0;
 sx2= 0;
-sXY= 0;
+sxY= 0;
 
 %Hago las sumatorias correspondientes
 for i=1:n
@@ -27,7 +27,7 @@ for i=1:n
   sx= sx + x(i);
   sY = sY + Y;
   sx2= sx2 + x(i)^2;
-  sXY= sXY + x(i)*Y;
+  sxY= sxY + x(i)*Y;
 endfor
 
 A = sx2;
@@ -37,7 +37,7 @@ D = n;
 
 %Resuelvo el sistema de ecuaciones con la matriz aumentada
 Matriz1=[A B;C D];
-Aumentada=[sXY;sY];
+Aumentada=[sxY;sY];
 
 Incognita = inv(Matriz1)*Aumentada;
 
