@@ -9,9 +9,30 @@ x= input('Ingrese los "x" entre corchetes y separados por un espacio: ');
 y= input('Ingrese los "y" entre corchetes y separados por un espacio: ');
 dec = input('Ingrese la cantidad de decimales con que desea trabajar: ');
 
-output_precision(dec); %NO SE SI CON ESTO ALCANZA PARA MANEJAR LO DE LOS DECIMALES
-                       %ES SOLO PARA LO QUE MUESTRO X PANTALLA, NO TRUNCA RESULTADOS
-                       
+  switch dec
+    case {1}
+      decimales=10;
+    case {2}
+      decimales=100;
+    case {3}
+      decimales=1000;
+    case {4}
+      decimales=10000;
+    case {5}
+      decimales=100000;
+    case {6}
+      decimales=1000000;
+    case {6}
+      decimales=10000000;
+    case {7}
+      decimales=100000000;
+    case {8}
+      decimales=1000000000;
+    case {9}
+      decimales=10000000000;
+  endswitch                  
+             
+             
 n=length(x); %Cantidad de valores
 
 %Inicio los valores de las sumatorias
@@ -54,11 +75,19 @@ a = Incognita(3);
 b = Incognita(2);
 c = Incognita(1); %ESTE ES EL ORDEN CORRECTO --> CHEQUEADO CON EJEMPLO DE LA GUIA
 
-printf('a: %i\n', a);
-printf('b: %i\n', b);
-printf('c: %i\n', c);
 
-x1 = 0:0.3:40; % aca deberia ser x1=x;?
+a1 = fix(a*decimales)/decimales;
+printf('a: %i\n', a1);
+
+
+b1 = fix(b*decimales)/decimales;
+printf('b: %i\n', b1);
+
+
+c1 = fix(c*decimales)/decimales;
+printf('c: %i\n', c1);
+
+x1 = 0:0.3:40; 
 y1 = (a.*x1.^2 + b.*x1 + c);
 
 retX = x;
