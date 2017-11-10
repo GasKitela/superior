@@ -50,8 +50,9 @@ function compararAprox(x, y, n, decimales);
 
         x1 = 1:1:n;
         y1 = (a*x1 + b);
+        error = ((a*x1+b)-y(n))^2
   
-        MatrizComparacion = [MatrizComparacion , y1']
+        MatrizComparacion = [MatrizComparacion , y1', error']
         
         error = 0;
         for i=1:n

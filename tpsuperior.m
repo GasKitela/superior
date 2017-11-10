@@ -20,9 +20,6 @@ function main = tpsuperior
                            "Parabola de minimos cuadrados",
                            "Aproximacion exponencial",
                            "Aproximacion potencial",
-<<<<<<< Updated upstream
-                           "Aproximacion hiperbola");                   
-=======
                            "Aproximacion hiperbola");
       
       x = input('Ingrese los "x" entre corchetes y separados por un espacio: ');
@@ -32,7 +29,6 @@ function main = tpsuperior
       n = length(x);
       decimales = power(10, dec);
       
->>>>>>> Stashed changes
       switch metodoElegido
         case {1}
           [x, y, x1, y1, func] = minCuadPorRecta(x, y, n, decimales);
@@ -61,17 +57,11 @@ function main = tpsuperior
       endswitch
       
     case{2}
-<<<<<<< Updated upstream
       compararAprox(x, y, n, decimales);
   
     case{3}
-      exit;
-=======
-      compararAprox;
-  
-    case{3}
       exit 
->>>>>>> Stashed changes
+
   
   endswitch
   
