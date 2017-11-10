@@ -1,40 +1,11 @@
-function compararAprox;
+function compararAprox(x, y, n, decimales);
   
 %Limpio los parametros%
-  clc
-  clear all
-
-  x= input('Ingrese los "x" entre corchetes y separados por un espacio: ');
-  y= input('Ingrese los "y" entre corchetes y separados por un espacio: ');
-  dec = input('Ingrese la cantidad de decimales con que desea trabajar: ');
+%  clc
+%  clear all
   
-  switch dec
-    case {1}
-      decimales=10;
-    case {2}
-      decimales=100;
-    case {3}
-      decimales=1000;
-    case {4}
-      decimales=10000;
-    case {5}
-      decimales=100000;
-    case {6}
-      decimales=1000000;
-    case {6}
-      decimales=10000000;
-    case {7}
-      decimales=100000000;
-    case {8}
-      decimales=1000000000;
-    case {9}
-      decimales=10000000000;
-  endswitch  
-  
-  n=length(x); %Cantidad de valores
  
   metodoElegido = 0;
-  cont = 1;
   MatrizComparacion = [(1:n);x;y]'
   
   while metodoElegido != "Finalizar"
@@ -231,5 +202,5 @@ function compararAprox;
     endswitch
     
   endwhile
-    cont = cont +1; 
-  endfunction
+
+endfunction

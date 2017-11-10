@@ -5,6 +5,13 @@ function main = tpsuperior
                           "Comparar Aproximaciones",
                           "Finalizar");
                           
+  x = input('Ingrese los "x" entre corchetes y separados por un espacio: ');
+  y = input('Ingrese los "y" entre corchetes y separados por un espacio: ');
+  dec = input('Ingrese la cantidad de decimales con que desea trabajar: '); 
+      
+  n = length(x);
+  decimales = power(10, dec);
+      
   switch opcionPrincipal
     
     case{1}
@@ -13,15 +20,7 @@ function main = tpsuperior
                            "Parabola de minimos cuadrados",
                            "Aproximacion exponencial",
                            "Aproximacion potencial",
-                           "Aproximacion hiperbola");
-      
-      x = input('Ingrese los "x" entre corchetes y separados por un espacio: ');
-      y = input('Ingrese los "y" entre corchetes y separados por un espacio: ');
-      dec = input('Ingrese la cantidad de decimales con que desea trabajar: ');                 
-      
-      n = length(x);
-      decimales = power(10, dec);
-      
+                           "Aproximacion hiperbola");                   
       switch metodoElegido
         case {1}
           [x, y, x1, y1, func] = minCuadPorRecta(x, y, n, decimales);
@@ -50,10 +49,10 @@ function main = tpsuperior
       endswitch
       
     case{2}
-      compararAprox;
+      compararAprox(x, y, n, decimales);
   
     case{3}
-      exit 
+      exit;
   
   endswitch
   
