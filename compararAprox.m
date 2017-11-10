@@ -30,6 +30,7 @@ function compararAprox(x, y, n, decimales);
           sy= sy + y(i);
           sxy= sxy + x(i)*y(i);
           sx2= sx2 + x(i)^2;
+          
         endfor
 
         A = sx2;
@@ -51,6 +52,13 @@ function compararAprox(x, y, n, decimales);
         y1 = (a*x1 + b);
   
         MatrizComparacion = [MatrizComparacion , y1']
+        
+        error = 0;
+        for i=1:n
+        error=error + (((a*i+b)-y(i))^2);
+        endfor
+        
+        
         
         
       case {2}
@@ -95,6 +103,15 @@ function compararAprox(x, y, n, decimales);
         y1 = (a.*x1.^2 + b.*x1 + c);
         MatrizComparacion = [MatrizComparacion , y1']
         
+        error=0;
+        
+        for i=1:n
+        error=error + (((a*(i^2)+b*i+c)-y(i))^2);
+        endfor
+        
+        
+        
+        
       case {3}
         
        %Inicio los valores de las sumatorias EXPONENCIAL
@@ -128,6 +145,12 @@ function compararAprox(x, y, n, decimales);
         x1 = 1:1:n;
         y1 = (b * exp(a*x1));
         MatrizComparacion = [MatrizComparacion , y1']
+        
+        error = 0;
+        for i=1:n
+        error=error + (((b*e^(a*i)) - y(i))^2);
+        endfor
+        
         
       case {4}
         
@@ -164,6 +187,11 @@ function compararAprox(x, y, n, decimales);
         y1 = (b * x1.^a);
         MatrizComparacion = [MatrizComparacion , y1']
         
+        error = 0;
+        for i=1:n
+        error=error + (((b*(i^a)) - y(i))^2);
+        endfor
+        
       case {5}
         %Inicio los valores de las sumatorias HIPERBOLA
         sx= 0;
@@ -194,6 +222,13 @@ function compararAprox(x, y, n, decimales);
         x1 = 1:1:n;
         y1 = (a./(x1 + b));
         MatrizComparacion = [MatrizComparacion , y1']
+        
+        error = 0;
+        for i=1:n
+        error=error + (((a/(b+i)) - y(i))^2);
+        endfor
+        
+        c=a+b;
         
       case {6}
         
