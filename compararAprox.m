@@ -6,8 +6,16 @@ function compararAprox(x, y, n, decimales);
   
  
   metodoElegido = 0;
-  MatrizComparacion = [(1:n);x;y]'
+  %MatrizComparacion = [(1:n);x;y]'
   
+  titulos = {"n" "x" "y"};
+
+%  for i=1:n
+%    visualMatrix = [visualMatrix; "-" num2str(n) num2str(x(i)) num2str(y(i))];
+%  endfor
+
+%  crearCuadro(visualMatrix);
+
   while metodoElegido != "Finalizar"
     metodoElegido = menu("Elija los metodos a comparar",
                          "Recta de minimos cuadrados", 
@@ -50,18 +58,27 @@ function compararAprox(x, y, n, decimales);
         
         error = 0;
         for i=1:n
-        error=error + (((a*i+b)-y(i))^2);
+          error=error + (((a*x(i)+b)-y(i))^2);
         endfor
 
         x1 = 1:1:n;
         y1 = (a*x1 + b);
-        error1 = [error]
-  
-        MatrizComparacion = [MatrizComparacion , y1', error1]
         
+        visualMatrix = [titulos "Recta"];
+
+        for i=1:n
+          imat = i;
+          xmat = x(i);
+          ymat = y(i);
+          y1mat = y1(i);
+          
+          visualMatrix = [visualMatrix; num2str(imat) num2str(xmat) num2str(ymat) num2str(y1mat)];
+        endfor
         
-        
-        
+        crearCuadro(visualMatrix);
+        disp("\n");
+        errorPorRecta = [fix((error)*decimales)/decimales]
+        disp("\n");
         
         
       case {2}
@@ -105,17 +122,27 @@ function compararAprox(x, y, n, decimales);
         error=0;
         
         for i=1:n
-        error=error + (((a*(i^2)+b*i+c)-y(i))^2);
+        error=error + (((a*(x(i)^2)+b*x(i)+c)-y(i))^2);
         endfor
 
         x1 = 1:1:n;
         y1 = (a.*x1.^2 + b.*x1 + c);
-        error1 = [error,0,0,0];
-        MatrizComparacion = [MatrizComparacion , y1', error1'];
+
+        visualMatrix = [titulos "Parabola"];
+
+        for i=1:n
+          imat = i;
+          xmat = x(i);
+          ymat = y(i);
+          y1mat = y1(i);
+          
+          visualMatrix = [visualMatrix; num2str(imat) num2str(xmat) num2str(ymat) num2str(y1mat)];
+        endfor
         
-        
-        
-        
+        crearCuadro(visualMatrix);
+        disp("\n");
+        errorPorParabola = [fix((error)*decimales)/decimales]
+        disp("\n");
         
         
       case {3}
@@ -150,12 +177,27 @@ function compararAprox(x, y, n, decimales);
 
         x1 = 1:1:n;
         y1 = (b * exp(a*x1));
-        MatrizComparacion = [MatrizComparacion , y1']
         
         error = 0;
         for i=1:n
-        error=error + (((b*e^(a*i)) - y(i))^2);
+        error=error + (((b*e^(a*x(i))) - y(i))^2);
         endfor
+        
+        visualMatrix = [titulos "Exponencial"];
+
+        for i=1:n
+          imat = i;
+          xmat = x(i);
+          ymat = y(i);
+          y1mat = y1(i);
+          
+          visualMatrix = [visualMatrix; num2str(imat) num2str(xmat) num2str(ymat) num2str(y1mat)];
+        endfor
+        
+        crearCuadro(visualMatrix);
+        disp("\n");
+        errorPorExponencial = [fix((error)*decimales)/decimales]
+        disp("\n");
         
         
       case {4}
@@ -191,13 +233,29 @@ function compararAprox(x, y, n, decimales);
 
         x1 = 1:1:n;
         y1 = (b * x1.^a);
-        MatrizComparacion = [MatrizComparacion , y1']
         
         error = 0;
         for i=1:n
-        error=error + (((b*(i^a)) - y(i))^2);
+          error=error + (((b*(x(i)^a)) - y(i))^2);
         endfor
         
+        visualMatrix = [titulos "Potencial"];
+
+        for i=1:n
+          imat = i;
+          xmat = x(i);
+          ymat = y(i);
+          y1mat = y1(i);
+          
+          visualMatrix = [visualMatrix; num2str(imat) num2str(xmat) num2str(ymat) num2str(y1mat)];
+        endfor
+        
+        crearCuadro(visualMatrix);
+        disp("\n");
+        errorPorPotencial = [fix((error)*decimales)/decimales]
+        disp("\n");
+      
+      
       case {5}
         %Inicio los valores de las sumatorias HIPERBOLA
         sx= 0;
@@ -227,15 +285,30 @@ function compararAprox(x, y, n, decimales);
 
         x1 = 1:1:n;
         y1 = (a./(x1 + b));
-        MatrizComparacion = [MatrizComparacion , y1']
         
         error = 0;
+        
         for i=1:n
-        error=error + (((a/(b+i)) - y(i))^2);
+          error=error + (((a/(b+x(i))) - y(i))^2);
+        endfor
+
+        visualMatrix = [titulos "Hiperbola"];
+
+        for i=1:n
+          imat = i;
+          xmat = x(i);
+          ymat = y(i);
+          y1mat = y1(i);
+          
+          visualMatrix = [visualMatrix; num2str(imat) num2str(xmat) num2str(ymat) num2str(y1mat)];
         endfor
         
-        c=a+b;
-        
+        crearCuadro(visualMatrix);
+        disp("\n");
+        errorPorHiperbola = [fix((error)*decimales)/decimales]
+        disp("\n");
+      
+      
       case {6}
         
         metodoElegido = "Finalizar";

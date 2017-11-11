@@ -33,7 +33,7 @@ Incognita = inv(Matriz1)*MatrizAumentada;
 a = 1/Incognita(1);
 b = Incognita(2)*a;
 
-x1 = 0:1:9;
+x1 = 0:0.3:10;
 y1 = (a./(x1 + b));
 
 retX = x;

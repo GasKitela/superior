@@ -44,7 +44,7 @@ a = Incognita(3);
 b = Incognita(2);
 c = Incognita(1); %ESTE ES EL ORDEN CORRECTO --> CHEQUEADO CON EJEMPLO DE LA GUIA
 
-x1 = 0:0.3:40; 
+x1 = 0:0.3:10; 
 y1 = (a.*x1.^2 + b.*x1 + c);
 
 retX = x;

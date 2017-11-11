@@ -1,4 +1,4 @@
-function main = tpsuperior
+function main = AMIC
 
   opcionPrincipal = menu("Elija una opcion",
                           "Aproximar",

@@ -1,6 +1,6 @@
 function dibujarGrafico(x, y, x1, y1)
 
-scatter(x, y);
+scatter(x, y, "filled");
 
 hold on;
 
