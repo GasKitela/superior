@@ -47,17 +47,19 @@ function compararAprox(x, y, n, decimales);
 
         a = Incognita(1);
         b = Incognita(2);
-
-        x1 = 1:1:n;
-        y1 = (a*x1 + b);
-        error = ((a*x1+b)-y(n))^2
-  
-        MatrizComparacion = [MatrizComparacion , y1', error']
         
         error = 0;
         for i=1:n
         error=error + (((a*i+b)-y(i))^2);
         endfor
+
+        x1 = 1:1:n;
+        y1 = (a*x1 + b);
+        error1 = [error]
+  
+        MatrizComparacion = [MatrizComparacion , y1', error1]
+        
+        
         
         
         
@@ -99,16 +101,19 @@ function compararAprox(x, y, n, decimales);
         a = Incognita(3);
         b = Incognita(2);
         c = Incognita(1); 
-
-        x1 = 1:1:n;
-        y1 = (a.*x1.^2 + b.*x1 + c);
-        MatrizComparacion = [MatrizComparacion , y1']
         
         error=0;
         
         for i=1:n
         error=error + (((a*(i^2)+b*i+c)-y(i))^2);
         endfor
+
+        x1 = 1:1:n;
+        y1 = (a.*x1.^2 + b.*x1 + c);
+        error1 = [error,0,0,0];
+        MatrizComparacion = [MatrizComparacion , y1', error1'];
+        
+        
         
         
         
